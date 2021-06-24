@@ -10,7 +10,6 @@ const clipboardElement = document.getElementById('clipboard');
 
 
 
-
 generateElement.addEventListener('click',()=>{
     const length= +lengthElement.value;
     const hasUpper= uppercaseElement.checked;
@@ -47,6 +46,14 @@ const generatePassword=(upper,lower,number,symbol,len)=>{
         })
     }
     const finalPassword=generatedPassword.slice(0,len);
+    
+
+
+    clipboardElement.addEventListener('click', () =>{
+        navigator.clipboard.writeText(finalPassword);
+        alert(`Generated password copied to your clipboard !`);
+    })
+    
     return finalPassword;
 }
 
